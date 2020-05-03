@@ -1,2 +1,6 @@
 # mymoney
-Projeto para controle de Ciclos de Pagamentos -> MongoDB, API REST com Node + Express e Front com ReactJS + Redux, configuração com Docker, cada ambiente em um container.
+Projeto para controle de Ciclos de Pagamentos -> 
+* MongoDB
+* API REST com Node + Express 
+* Front com ReactJS + Redux e template AdminLTE 
+* Ambiente conteinerizado com Docker.
