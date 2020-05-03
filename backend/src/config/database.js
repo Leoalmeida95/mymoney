@@ -1,3 +1,3 @@
 const mongoose = require('mongoose')
 mongoose.Promise = global.Promise
-module.exports = mongoose.connect('mongodb://db/mymoney')
+module.exports = mongoose.connect('mongodb://mymoneydb/mymoney')

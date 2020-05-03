@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+   
+    server:
+        network_mode: bridge
+        container_name: mymoneybackend
+        build: './backend'
+        volumes:
+        - ./backend:/node-app
+        depends_on:
+        - mymoneydb
+        links:
+        - mymoneydb
+        ports:
+        - '3003:3003'
+
+    mymoneydb:
+        network_mode: bridge
+        image: 'mongo'
+        container_name: mymoneydb
+        ports:
+        - '27017:27017'
+        volumes:
+        - ./backend/data/db:/data/db
+        restart: unless-stopped
