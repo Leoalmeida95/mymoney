@@ -4,28 +4,28 @@ const mongoose = restful.mongoose
 const creditSchema = new mongoose.Schema({
     name:{
         type:String, 
-        required: true
+        required: [true, 'O nome é obrigatório']
     },
     value:{
         type: Number,
         min: 0,
-        require: true
+        require: [true, 'O valor é obrigatório']
     }
 })
 
 const debtSchema = new mongoose.Schema({
     name:{
         type:String, 
-        required: true
+        required: [true, 'O nome é obrigatório']
     },
     value:{
         type: Number,
         min: 0,
-        require: true
+        require: [true, 'O valor é obrigatório']
     },
     status:{
         type: String,
-        required: true,
+        required: [true, 'O status é obrigatório'],
         uppercase: true,
         enum: ['PAGO', 'PENDENTE','AGENDADO']
     }
@@ -34,19 +34,19 @@ const debtSchema = new mongoose.Schema({
 const billingCycleSchema = new mongoose.Schema({
     name:{
         type: String,
-        required: true
+        required: [true, 'O nome é obrigatório']
     },
     mes:{
         type: Number,
         min: 1,
         max: 12,
-        required: true
+        required: [true, 'O mês é obrigatório']
     },
     year:{
         type: Number,
         min: 1970,
         max:2100,
-        required: true
+        required: [true, 'O ano é obrigatório']
     },
     credits: [creditSchema],
     debts: [debtSchema]
