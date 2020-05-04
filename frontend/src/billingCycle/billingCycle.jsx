@@ -7,6 +7,7 @@ import Tabs from '../common/tab/tabs'
 import TabsHeader from '../common/tab/tabsHeader'
 import TabsContent from '../common/tab/tabsContent'
 import TabHeader from '../common/tab/tabHeader'
+import TabContent from '../common/tab/tabContent'
 
 class BiilingCycle extends Component {
     render(){
@@ -23,7 +24,18 @@ class BiilingCycle extends Component {
                             <TabHeader target='tabDelete' icon='trash-o' label='Excluir' />
                         </TabsHeader> 
                         <TabsContent>
-
+                            <TabContent id='tabList' >
+                                <h1>Lista</h1>
+                            </TabContent>
+                            <TabContent id='tabCreate' >
+                                <h1>Create</h1>
+                            </TabContent>
+                            <TabContent id='tabUpdate' >
+                                <h1>Update</h1>
+                            </TabContent>
+                            <TabContent id='tabDelete' >
+                                <h1>Delete</h1>
+                            </TabContent>
                         </TabsContent>
                     </Tabs>
                 </Row>

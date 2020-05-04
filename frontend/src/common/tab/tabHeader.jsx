@@ -12,8 +12,9 @@ class TabHeader extends Component {
     render(){
         const target = this.props.target
         const selected = this.props.tab.selected === target
+        const active = selected || (this.props.tab.selected === '' && target === 'tabList')
         return(
-            <li className={selected ? 'active' : ''} >
+            <li className={active ? 'active' : ''} >
                 <a href='javascript:;' data-toggle='tab' data-target={target} 
                 onClick={() => this.props.selectTab(target)} >
                     <i className={`fa fa-${this.props.icon}`} ></i> {this.props.label}
