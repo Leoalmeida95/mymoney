@@ -36,7 +36,7 @@ const billingCycleSchema = new mongoose.Schema({
         type: String,
         required: [true, 'O nome é obrigatório']
     },
-    mes:{
+    month:{
         type: Number,
         min: 1,
         max: 12,
