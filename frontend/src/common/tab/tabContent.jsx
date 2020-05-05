@@ -1,13 +1,14 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 
-import If from '../operador/if'
+import If from '../operator/if'
+import ETabs from '../constants/tabs'
 
 class TabContent extends Component{
     render(){
         const tabId = this.props.id
         const selected = this.props.tab.selected === tabId
-        const active = selected || (this.props.tab.selected === '' && tabId === 'tabList')
+        const active = selected || (this.props.tab.selected === '' && tabId === ETabs.list)
         const visible = this.props.tab.visible[tabId]
         return(
             <If test={visible}>

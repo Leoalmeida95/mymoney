@@ -1,8 +1,10 @@
+import EActionTypes from '../common/constants/actionsTypes'
+
 const INITIAL_STATE = {list: []}
 
 export default (state = INITIAL_STATE, action) => {
     switch(action.type){
-        case 'BILLING_CYCLES_FETCHED':
+        case EActionTypes.BillingCycles.list:
             return{
                 ...state,
                 list: action.payload.data

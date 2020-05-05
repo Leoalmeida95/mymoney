@@ -14,12 +14,13 @@ import TabHeader from '../common/tab/tabHeader'
 import TabContent from '../common/tab/tabContent'
 import {selectTab, showTabs} from '../common/tab/tabActions'
 import {create} from './billingCycleActions'
+import ETabs from '../common/constants/tabs'
 
 class BiilingCycle extends Component {
 
     componentWillMount(){
-        this.props.selectTab('tabList')
-        this.props.showTabs('tabList','tabCreate')
+        this.props.selectTab(ETabs.list)
+        this.props.showTabs(ETabs.list, ETabs.create)
     }
 
     render(){
@@ -30,22 +31,22 @@ class BiilingCycle extends Component {
                 <Row>
                     <Tabs>
                         <TabsHeader>
-                            <TabHeader target='tabList' icon='bars' label='Listar' />
-                            <TabHeader target='tabCreate' icon='plus' label='Incluir' />
-                            <TabHeader target='tabUpdate' icon='pencil' label='Alterar' />
-                            <TabHeader target='tabDelete' icon='trash-o' label='Excluir' />
+                            <TabHeader target={ETabs.list} icon='bars' label='Listar' />
+                            <TabHeader target={ETabs.create} icon='plus' label='Incluir' />
+                            <TabHeader target={ETabs.update} icon='pencil' label='Alterar' />
+                            <TabHeader target={ETabs.delete} icon='trash-o' label='Excluir' />
                         </TabsHeader> 
                         <TabsContent>
-                            <TabContent id='tabList' >
+                            <TabContent id={ETabs.list} >
                                 <BillingCycleList />
                             </TabContent>
-                            <TabContent id='tabCreate' >
+                            <TabContent id={ETabs.create} >
                                 <Form onSubmit={this.props.create} />
                             </TabContent>
-                            <TabContent id='tabUpdate' >
+                            <TabContent id={ETabs.update} >
                                 <h1>Update</h1>
                             </TabContent>
-                            <TabContent id='tabDelete' >
+                            <TabContent id={ETabs.update} >
                                 <h1>Delete</h1>
                             </TabContent>
                         </TabsContent>

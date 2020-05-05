@@ -1,11 +1,13 @@
+import EActionTypes from '../constants/actionsTypes'
+
 const INITIAL_STATE = {selected: '', visible: {}}
 
 export default (state=INITIAL_STATE, action) =>{
     switch(action.type)
     {
-        case 'TAB_SELECTED':
+        case EActionTypes.Tabs.selected:
             return{...state, selected: action.payload}
-        case 'TAB_SHOWED':
+        case EActionTypes.Tabs.show:
             return{...state, visible: action.payload}
         default:
             return state

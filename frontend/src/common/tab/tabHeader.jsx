@@ -2,8 +2,9 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 
-import If from '../operador/if'
+import If from '../operator/if'
 import {selectTab} from './tabActions'
+import ETabs from '../constants/tabs'
 
 class TabHeader extends Component {
 
@@ -14,7 +15,7 @@ class TabHeader extends Component {
     render(){
         const target = this.props.target
         const selected = this.props.tab.selected === target
-        const active = selected || (this.props.tab.selected === '' && target === 'tabList')
+        const active = selected || (this.props.tab.selected === '' && target === ETabs.list)
         const visible = this.props.tab.visible[target]
         return(
             <If test={visible}>

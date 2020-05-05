@@ -1,6 +1,8 @@
+import EActionTypes from '../constants/actionsTypes'
+
 export function selectTab(tabId) {
     return {
-        type: 'TAB_SELECTED',
+        type: EActionTypes.Tabs.selected,
         payload: tabId
     }
 }
@@ -10,7 +12,7 @@ export function showTabs(...tabsIds){
     tabsIds.forEach(t => tabsToShow[t] = true)
     
     return{
-        type: 'TAB_SHOWED',
+        type: EActionTypes.Tabs.show,
         payload: tabsToShow
     }
 }

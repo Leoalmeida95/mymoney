@@ -1,6 +1,7 @@
 import axios from 'axios'
 import URL from '../config/server'
 import {toastr} from 'react-redux-toastr'
+import EActionTypes from '../common/constants/actionsTypes'
 
 export function getSummary(){
     const request = axios.get(`${URL}/billingCycles/summary`)
@@ -8,7 +9,7 @@ export function getSummary(){
                             err.response.data.errors.forEach(e => toastr.error('Erro', e))
                         })
     return{
-        type: 'BILLING_SUMMARY_FETCHED',
+        type:  EActionTypes.Dashboard.summary,
         payload: request
     }
 }
