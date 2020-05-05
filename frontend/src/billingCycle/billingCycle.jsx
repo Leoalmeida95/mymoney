@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 
+import BillingCycleList from './billingCycleList'
+import Form from './billingCycleForm'
 import ContentHeader from '../common/template/contentHeader'
 import Content from '../common/template/content'
 import Row from '../common/layout/row'
@@ -11,8 +13,7 @@ import TabsContent from '../common/tab/tabsContent'
 import TabHeader from '../common/tab/tabHeader'
 import TabContent from '../common/tab/tabContent'
 import {selectTab, showTabs} from '../common/tab/tabActions'
-import BillingCycleList from './billingCycleList'
-import Form from './billingCycleForm'
+import {create} from './billingCycleActions'
 
 class BiilingCycle extends Component {
 
@@ -39,7 +40,7 @@ class BiilingCycle extends Component {
                                 <BillingCycleList />
                             </TabContent>
                             <TabContent id='tabCreate' >
-                                <Form />
+                                <Form onSubmit={this.props.create} />
                             </TabContent>
                             <TabContent id='tabUpdate' >
                                 <h1>Update</h1>
@@ -57,7 +58,6 @@ class BiilingCycle extends Component {
 }
 
 const mapDispatchToProps = dispacth => 
-    bindActionCreators({selectTab, showTabs}, dispacth)
-
+    bindActionCreators({selectTab, showTabs, create}, dispacth)
 
 export default connect(null, mapDispatchToProps)(BiilingCycle)

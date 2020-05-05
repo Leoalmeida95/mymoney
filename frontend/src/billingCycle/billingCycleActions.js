@@ -8,3 +8,11 @@ export function getList(){
         payload: request
     }
 }
+
+export function create(values){
+    const request = axios.post(`${URL}/billingCycles`, values)
+    return{
+        type: 'TEMP',
+        payload: request
+    }
+}
