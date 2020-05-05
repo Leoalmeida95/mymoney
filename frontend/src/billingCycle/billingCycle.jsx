@@ -44,9 +44,9 @@ class BiilingCycle extends Component {
                                 <Form onSubmit={this.props.create} />
                             </TabContent>
                             <TabContent id={ETabs.update} >
-                                <h1>Update</h1>
+                                <Form />
                             </TabContent>
-                            <TabContent id={ETabs.update} >
+                            <TabContent id={ETabs.delete} >
                                 <h1>Delete</h1>
                             </TabContent>
                         </TabsContent>
