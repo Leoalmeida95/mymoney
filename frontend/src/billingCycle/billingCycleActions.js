@@ -9,7 +9,7 @@ import EActionTypes from '../common/constants/actionsTypes'
 import EFormsIds from '../common/constants/formsIds'
 import URL from '../config/server'
 
-const INITIAL_VALUE = {}
+const INITIAL_VALUE = {credits: [{}]}
 
 export function getList(){
     const request = axios.get(`${URL}/billingCycles`)

@@ -12,15 +12,13 @@ import TabsHeader from '../common/tab/tabsHeader'
 import TabsContent from '../common/tab/tabsContent'
 import TabHeader from '../common/tab/tabHeader'
 import TabContent from '../common/tab/tabContent'
-import {selectTab, showTabs} from '../common/tab/tabActions'
-import {create, update, remove} from './billingCycleActions'
+import {clear, create, update, remove} from './billingCycleActions'
 import ETabs from '../common/constants/tabs'
 
 class BiilingCycle extends Component {
 
     componentWillMount(){
-        this.props.selectTab(ETabs.list)
-        this.props.showTabs(ETabs.list, ETabs.create)
+        this.props.clear()
     }
 
     render(){
@@ -59,6 +57,6 @@ class BiilingCycle extends Component {
 }
 
 const mapDispatchToProps = dispacth => 
-    bindActionCreators({selectTab, showTabs, create, update, remove}, dispacth)
+    bindActionCreators({clear, create, update, remove}, dispacth)
 
 export default connect(null, mapDispatchToProps)(BiilingCycle)
