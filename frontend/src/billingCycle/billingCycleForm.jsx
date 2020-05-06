@@ -7,13 +7,13 @@ import {clear} from './billingCycleActions'
 import LabelAndInput from '../common/form/labelAndInput'
 import EFormsIds from '../common/constants/formsIds'
 import IconButton from '../common/form/iconButton'
-import CreditList from './creditList'
+import ItemList from './itemitList'
 
 class BillingCycleForm extends Component{
 
     render() {
         
-        const {handleSubmit, credits, readOnly, btn, icon, type, text} = this.props 
+        const {handleSubmit, credits, debts, readOnly, btn, icon, type, text} = this.props 
 
         return(
             <form role='form' onSubmit={handleSubmit}>
@@ -24,7 +24,8 @@ class BillingCycleForm extends Component{
                     placeholder='Informe o Mês' type='number' readOnly={readOnly}  />
                     <Field name='year' component={LabelAndInput} label='Ano' cols='12 4'
                     placeholder='Informe o Ano' type='number' readOnly={readOnly}  />
-                    <CreditList cols='12 6' readOnly={readOnly} list={credits} />
+                    <ItemList cols='12 6' readOnly={readOnly} list={credits} field='credits' legend='Créditos' />
+                    <ItemList cols='12 6' readOnly={readOnly} list={debts} field='debts' legend='Débitos' show={true} />
                 </div>
                 <div className='box-footer' >
                     <IconButton btn={btn}icon={icon} type={type}text={text}/>
@@ -45,7 +46,8 @@ const selector = formValueSelector(EFormsIds.billingCycle)
 const mapDispatchToProps = dispacth => 
     bindActionCreators({clear}, dispacth)
 const mapStateToProps = state => ({
-    credits: selector(state, 'credits')
+    credits: selector(state, 'credits'),
+    debts: selector(state, 'debts')
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(BillingCycleForm)
