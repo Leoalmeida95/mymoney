@@ -22,9 +22,9 @@ class BillingCycleList extends Component{
                         <td>{l.year}</td>
                         <td>
                             <IconButton type='button' btn='warning' onClick={() => this.props.showAction(ETabs.update, EFormsIds.billingCycle, l)}
-                                        icon='pencil' />
+                                        icon='pencil' type='button' />
                             <IconButton type='button' btn='danger' onClick={() => this.props.showAction(ETabs.delete, EFormsIds.billingCycle, l)}
-                                        icon='trash' />
+                                        icon='trash' type='button' />
                         </td>
                     </tr>
                 )
