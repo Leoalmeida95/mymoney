@@ -5,6 +5,7 @@ import {bindActionCreators} from 'redux'
 import {getList, showAction} from './billingCycleActions'
 import ETabs from '../common/constants/tabs'
 import EFormsIds from '../common/constants/formsIds'
+import IconButton from '../common/form/iconButton'
 
 class BillingCycleList extends Component{
 
@@ -20,12 +21,10 @@ class BillingCycleList extends Component{
                         <td>{l.month}</td>
                         <td>{l.year}</td>
                         <td>
-                            <button className='btn btn-warning' onClick={() => this.props.showAction(ETabs.update, EFormsIds.billingCycle, l)}>
-                                <i className='fa fa-pencil'></i>
-                            </button>
-                            <button className='btn btn-danger' onClick={() => this.props.showAction(ETabs.delete, EFormsIds.billingCycle, l)}>
-                                <i className='fa fa-trash'></i>
-                            </button>
+                            <IconButton type='button' btn='warning' onClick={() => this.props.showAction(ETabs.update, EFormsIds.billingCycle, l)}
+                                        icon='pencil' />
+                            <IconButton type='button' btn='danger' onClick={() => this.props.showAction(ETabs.delete, EFormsIds.billingCycle, l)}
+                                        icon='trash' />
                         </td>
                     </tr>
                 )
@@ -39,7 +38,7 @@ class BillingCycleList extends Component{
                         <th>Nome</th>
                         <th>Mês</th>
                         <th>Ano</th>
-                        <th>Ações</th>
+                        <th className='table-actions' >Ações</th>
                     </tr>
                 </thead>
                 <tbody>

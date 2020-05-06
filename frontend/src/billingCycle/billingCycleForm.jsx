@@ -6,12 +6,13 @@ import {bindActionCreators} from 'redux'
 import {clear} from './billingCycleActions'
 import labelAndInput from '../common/form/labelAndInput'
 import EFormsIds from '../common/constants/formsIds'
+import IconButton from '../common/form/iconButton'
 
 class BillingCycleForm extends Component{
 
     render() {
         
-        const {handleSubmit, readOnly} = this.props 
+        const {handleSubmit, readOnly, btn, icon, type, text} = this.props 
 
         return(
             <form role='form' onSubmit={handleSubmit}>
@@ -24,8 +25,8 @@ class BillingCycleForm extends Component{
                     placeholder='Informe o Ano' type='number' readOnly={readOnly}  />
                 </div>
                 <div className='box-footer' >
-                    <button type='submit' className='btn btn-primary'>Submit</button>
-                    <button type='button' className='btn btn-default' onClick={this.props.clear} >Cancelar</button>
+                    <IconButton btn={btn}icon={icon} type={type}text={text}/>
+                    <IconButton btn='default' type='button'text='Cancelar' onClick={this.props.clear} />
                 </div>
             </form>
         )
