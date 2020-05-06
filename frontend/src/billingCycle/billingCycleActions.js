@@ -30,6 +30,10 @@ export function update(values){
     return submit(values, HTTP.put)
 }
 
+export function remove(values){
+    return submit(values, HTTP.delete)
+}
+
 function submit(values, method){
     return dispatch => {
         const id = values._id ? values._id : ''
@@ -45,11 +49,11 @@ function submit(values, method){
         }
 }
 
-export function showUpdate(billingCycles){
+export function showAction(tab, formId, billingCycles){
     return [
-        showTabs(ETabs.update),
-        selectTab(ETabs.update),
-        initialize(EFormsIds.billingCycle, billingCycles)
+        showTabs(tab),
+        selectTab(tab),
+        initialize(formId, billingCycles)
     ]
 }
 

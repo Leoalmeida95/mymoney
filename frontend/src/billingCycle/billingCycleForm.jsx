@@ -11,17 +11,17 @@ class BillingCycleForm extends Component{
 
     render() {
         
-        const {handleSubmit} = this.props 
+        const {handleSubmit, readOnly} = this.props 
 
         return(
             <form role='form' onSubmit={handleSubmit}>
                 <div className='box-body' >
                     <Field name='name' component={labelAndInput} label='Nome' cols='12 4'
-                    placeholder='Informe o Nome' type='text' />
+                    placeholder='Informe o Nome' type='text' readOnly={readOnly} />
                     <Field name='month' component={labelAndInput} label='Mês' cols='12 4'
-                    placeholder='Informe o Mês' type='number' />
+                    placeholder='Informe o Mês' type='number' readOnly={readOnly}  />
                     <Field name='year' component={labelAndInput} label='Ano' cols='12 4'
-                    placeholder='Informe o Ano' type='number' />
+                    placeholder='Informe o Ano' type='number' readOnly={readOnly}  />
                 </div>
                 <div className='box-footer' >
                     <button type='submit' className='btn btn-primary'>Submit</button>

@@ -13,7 +13,7 @@ import TabsContent from '../common/tab/tabsContent'
 import TabHeader from '../common/tab/tabHeader'
 import TabContent from '../common/tab/tabContent'
 import {selectTab, showTabs} from '../common/tab/tabActions'
-import {create, update} from './billingCycleActions'
+import {create, update, remove} from './billingCycleActions'
 import ETabs from '../common/constants/tabs'
 
 class BiilingCycle extends Component {
@@ -47,7 +47,7 @@ class BiilingCycle extends Component {
                                 <Form onSubmit={this.props.update} />
                             </TabContent>
                             <TabContent id={ETabs.delete} >
-                                <h1>Delete</h1>
+                                <Form onSubmit={this.props.remove} readOnly={true} />
                             </TabContent>
                         </TabsContent>
                     </Tabs>
@@ -59,6 +59,6 @@ class BiilingCycle extends Component {
 }
 
 const mapDispatchToProps = dispacth => 
-    bindActionCreators({selectTab, showTabs, create, update}, dispacth)
+    bindActionCreators({selectTab, showTabs, create, update, remove}, dispacth)
 
 export default connect(null, mapDispatchToProps)(BiilingCycle)
