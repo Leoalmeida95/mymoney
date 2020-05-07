@@ -1,7 +1,7 @@
 const userKey = '_mymoney_user'
 
 const INITIAL_STATE = {
-    user: {name: 'Anderson', email: 'anderson@gmail.com'},//JSON.parse(localStorage.getItem(userKey)),
+    user: JSON.parse(localStorage.getItem(userKey)),
     validToken: false
 }
 

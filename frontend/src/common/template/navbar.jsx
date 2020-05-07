@@ -17,7 +17,7 @@ class Navbar extends Component {
 
     render() {
 
-        if(!this.props.user) return false
+        // if(!this.props.user) return false
 
         const { name, email } = this.props.user
         
