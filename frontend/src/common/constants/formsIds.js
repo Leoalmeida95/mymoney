@@ -1,5 +1,6 @@
 const FormsIds = Object.freeze({
-    billingCycle: 'billingCycleForm'
+    billingCycle: 'billingCycleForm',
+    auth: 'authForm'
 })
 
 export default FormsIds

@@ -1,6 +1,7 @@
 import { toastr } from 'react-redux-toastr'
 import axios from 'axios'
 
+import EActions from '../common/constants/actionsTypes'
 import consts from '../config/server'
 
 export function login(values) {
@@ -16,7 +17,7 @@ function submit(values, url) {
         axios.post(url, values)
             .then(resp => {
                 dispatch([
-                    { type: 'USER_FETCHED', payload: resp.data }
+                    { type: EActions.Auth.user, payload: resp.data }
                 ])
             })
             .catch(e => {
@@ -27,7 +28,7 @@ function submit(values, url) {
 }
 
 export function logout() {
-    return { type: 'TOKEN_VALIDATED', payload: false }
+    return { type: EActions.Auth.token, payload: false }
 }
 
 export function validateToken(token) {
@@ -35,11 +36,11 @@ export function validateToken(token) {
         if (token) {
             axios.post(`${consts.OAPI_URL}/validateToken`, { token })
                 .then(resp => {
-                    dispatch({ type: 'TOKEN_VALIDATED', payload: resp.data.valid })
+                    dispatch({ type: EActions.Auth.token, payload: resp.data.valid })
                 })
-                .catch(e => dispatch({ type: 'TOKEN_VALIDATED', payload: false }))
+                .catch(e => dispatch({ type: EActions.Auth.token, payload: false }))
         } else {
-            dispatch({ type: 'TOKEN_VALIDATED', payload: false })
+            dispatch({ type: EActions.Auth.token, payload: false })
         }
     }
 }

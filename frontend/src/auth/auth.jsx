@@ -9,6 +9,7 @@ import Row from '../common/layout/row'
 import Grid from '../common/layout/grid'
 import Messages from '../common/msg/messages'
 import Input from '../common/form/inputAuth'
+import EFormsIds from '../common/constants/formsIds'
 
 class Auth extends Component {
 
@@ -64,7 +65,7 @@ class Auth extends Component {
     }
 }
 
-Auth = reduxForm({ form: 'authForm' })(Auth)
+Auth = reduxForm({ form: EFormsIds.auth })(Auth)
 const mapDispatchToProps = dispatch => bindActionCreators({ login, signup },
     dispatch)
 export default connect(null, mapDispatchToProps)(Auth)

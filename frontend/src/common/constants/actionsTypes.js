@@ -8,6 +8,10 @@ const ActionTypes = {
     }),
     BillingCycles: Object.freeze({
         list: 'BILLING_CYCLES_FETCHED'
+    }),
+    Auth: Object.freeze({
+        token: 'TOKEN_VALIDATED',
+        user: 'USER_FETCHED'
     })
 }
 
