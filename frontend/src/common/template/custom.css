@@ -5,3 +5,5 @@ button {
 .table-actions{
     width: 150px;
 }
+
+.main-footer { position: fixed; left: 0; right: 0; bottom: 0; }
