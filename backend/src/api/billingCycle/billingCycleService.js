@@ -17,26 +17,18 @@ BillingCycle.route('count', (req, res, next) =>{
 })
 
 BillingCycle.route('summary', (req, res, next) => {
-    //as variaveis 'project' e 'group' são do pipeline de agregação do mongoDB
-    BillingCycle.aggregate([{ 
-        $project: {
-            credit: {$sum: "$credits.value"}, debt: {$sum: "$debts.value"}} 
-        }, 
-        { 
-        $group: {
-            _id: null, credit: {$sum: "$credit"}, debt: {$sum: "$debt"}}
-        }, 
-        { 
-        $project: {
-            _id: 0, credit: 1, debt: 1}
-        }], (error, result) => {
-            if(error) {
-                res.status(500).json({errors: [error]})
-            } else {
-                res.json(
-                    result[0] || {credit: 0, debt: 0} //se não houver pelo menos 1 'result' retorna os valores zerados
-                    )
-            }
+    BillingCycle.aggregate([{
+        $project: {credit: {$sum: "$credits.value"}, debt: {$sum: "$debts.value"}}
+    }, {
+        $group: {_id: null, credit: {$sum: "$credit"}, debt: {$sum: "$debt"}}
+    }, {
+        $project: {_id: 0, credit: 1, debt: 1}
+    }]).exec((error, result) => {
+        if(error) {
+            res.status(500).json({errors: [error]})
+        } else {
+            res.json(result[0] || { credit: 0, debt: 0 })
+        }
     })
 })
 

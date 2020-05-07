@@ -16,7 +16,6 @@ const sendErrorsFromDB = (res, dbErrors) => {
 }
 
 const login = (req, res, next) => {
-    console.log('Entrou no login')
     try{
         const email = req.body.email || ''
         const password = req.body.password || ''
@@ -26,7 +25,7 @@ const login = (req, res, next) => {
                 return sendErrorsFromDB(res, err)
             } else if (user && bcrypt.compareSync(password, user.password)) {
 
-                const token = jwt.sign(user, env.authSecret, {
+                const token = jwt.sign({ ...user}, env.authSecret, {
                     expiresIn: "1 day"
                 })
 

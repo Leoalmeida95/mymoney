@@ -1,22 +1,13 @@
-# Docker Image which is used as foundation to create
-# a custom Docker Image with this Dockerfile
+# Imagem de Origem
 FROM node:11-alpine
- 
-# A directory within the virtualized Docker environment
-# Becomes more relevant when using Docker Compose later
-WORKDIR /usr/src/app
- 
-# Copies package.json and package-lock.json to Docker environment
-COPY package*.json ./
- 
-# Installs all node packages
-RUN npm install
- 
-# Copies everything over to Docker environment
-COPY . .
- 
-# Uses port which is used by the actual application
-EXPOSE 8080
- 
-# Finally runs the application
-CMD [ "npm", "start" ]
+# Diretório de trabalho(é onde a aplicação ficará dentro do container).
+WORKDIR /app
+# Adicionando `/app/node_modules/.bin` para o $PATH
+ENV PATH /app/node_modules/.bin:$PATH
+# Instalando dependências da aplicação e armazenando em cache.
+COPY package.json /app/package.json
+RUN npm install --silent
+RUN npm install react-scripts@3.4.0  -g --silent
+EXPOSE 3000
+# start app
+CMD ["npm", "start"]
