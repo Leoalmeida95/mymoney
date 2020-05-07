@@ -7,7 +7,7 @@ import ETabs from '../common/constants/tabs'
 import HTTP from '../common/constants/methodsHttp'
 import EActionTypes from '../common/constants/actionsTypes'
 import EFormsIds from '../common/constants/formsIds'
-import URL from '../config/server'
+import consts from '../config/server'
 
 const INITIAL_VALUE = {
             credits: [{}],
@@ -15,7 +15,7 @@ const INITIAL_VALUE = {
         }
 
 export function getList(){
-    const request = axios.get(`${URL}/billingCycles`)
+    const request = axios.get(`${consts.API_URL}/billingCycles`)
                         .catch(err => {
                             err.response.data.errors.forEach(e => toastr.error('Erro', e))
                         })
@@ -40,7 +40,7 @@ export function remove(values){
 function submit(values, method){
     return dispatch => {
         const id = values._id ? values._id : ''
-        axios[method](`${URL}/billingCycles/${id}`, values)
+        axios[method](`${consts.API_URL}/billingCycles/${id}`, values)
             .then(resp => {
                     toastr.success('Sucesso','Operação realizada com sucesso.')
                     //só é possível passar o array pro dispatch graças ao redux multi

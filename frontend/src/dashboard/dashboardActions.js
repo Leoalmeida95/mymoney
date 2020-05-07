@@ -1,10 +1,11 @@
 import axios from 'axios'
-import URL from '../config/server'
+
+import consts from '../config/server'
 import {toastr} from 'react-redux-toastr'
 import EActionTypes from '../common/constants/actionsTypes'
 
 export function getSummary(){
-    const request = axios.get(`${URL}/billingCycles/summary`)
+    const request = axios.get(`${consts.API_URL}/billingCycles/summary`)
                         .catch(err => {
                             err.response.data.errors.forEach(e => toastr.error('Erro', e))
                         })
