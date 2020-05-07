@@ -10,7 +10,7 @@ import Routes from './routes'
 
 export default props => (
     <HashRouter>
-        <div className='wrapper'>
+        <div>
             <Header />
             <SideBar />
             <Routes />
